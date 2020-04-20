@@ -39,18 +39,18 @@ public class MainPage extends ConfigTest {
         LOG.info("Verifying product's price value type ...");
         switch (value) {
             case EUR:
-                return checkCurrencySymbol("€", " is displayed in EUR value. Verified.");
+                return checkValueSymbol("€", " is displayed in EUR value. Verified.");
             case UAH:
-                return checkCurrencySymbol("₴", " is displayed in UAH value. Verified.");
+                return checkValueSymbol("₴", " is displayed in UAH value. Verified.");
             case USD:
-                return checkCurrencySymbol("$", " is displayed in USD value. Verified.");
+                return checkValueSymbol("$", " is displayed in USD value. Verified.");
             default:
                 throw new IllegalArgumentException(
                         "Wrong value, should be: EUR, UAH, USD");
         }
     }
 
-    private boolean checkCurrencySymbol(String symbol, String text) {
+    private boolean checkValueSymbol(String symbol, String text) {
         for (WebElement price : prices) {
             if (price.getText().contains(symbol)) {
                 LOG.info(price.getText() + text);
