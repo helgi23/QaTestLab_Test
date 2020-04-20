@@ -33,7 +33,7 @@ public class MainPage extends ConfigTest {
         LOG.info("Value successfully change on: " + value);
     }
 
-    protected boolean checkCurrency(Value value) {
+    protected boolean checkValue(Value value) {
         prices = waitElementToByClickable(BY_PRICE).findElements(BY_PRICE);
 
         LOG.info("Verifying product's price value type ...");

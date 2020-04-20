@@ -11,20 +11,20 @@ public class TestCase extends CheckPage {
     @Test
     public void testUsd() {
         changeValue(Value.USD);
-        assertTrue(checkCurrency(Value.USD));
+        assertTrue(checkValue(Value.USD));
     }
 
     @Test
     public void testEur() {
 
         changeValue(Value.EUR);
-        assertTrue(checkCurrency(Value.EUR));
+        assertTrue(checkValue(Value.EUR));
     }
 
     @Test
     public void testUah(){
         changeValue(Value.UAH);
-        assertTrue(checkCurrency(Value.UAH));
+        assertTrue(checkValue(Value.UAH));
     }
 
     @Test
