@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import com.qatestlab.configurations.Currency;
+import com.qatestlab.configurations.Value;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
@@ -35,22 +35,22 @@ public class CheckPage extends MainPage {
         return Integer.parseInt(count) == elements.size();
     }
 
-    protected boolean checkCurrencyFoundedProducts(Currency currency) {
+    protected boolean checkCurrencyFoundedProducts(Value value) {
         List<WebElement> prices = waitVisibilityOfAllElementsLocatedBy(BY_PRICE);
 
-        switch (currency) {
+        switch (value) {
             case EUR:
-                LOG.info("Check symbol currency " +  currency);
+                LOG.info("Check symbol" + value);
                 return checkSymbol(prices, "€");
             case UAH:
-                LOG.info("Check symbol currency " +  currency);
+                LOG.info("Check symbol" + value);
                 return checkSymbol(prices, "₴");
             case USD:
-                LOG.info("Check symbol currency " +  currency);
+                LOG.info("Check symbol" + value);
                 return checkSymbol(prices, "$");
             default:
                 throw new IllegalArgumentException(
-                        "Not correct currency name, should be: €, ₴, $");
+                        "Wrong value name, should be: €, ₴, $");
         }
     }
 
@@ -66,7 +66,7 @@ public class CheckPage extends MainPage {
     protected void setSortingFromHighToLow() {
         waitVisibilityOfElementLocated(BY_SELECT_TITLE).click();
         waitVisibilityOfElementLocated(BY_PRICE_HIGH_TO_LOW).click();
-        LOG.info("Selected sorting from high to low");
+        LOG.info("Sorting from high to low");
     }
 
     protected boolean checkSortingWithoutDiscount() {

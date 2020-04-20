@@ -1,5 +1,5 @@
 package com.qatestlab.configurations;
 
-public enum Currency {
+public enum Value {
     USD, EUR, UAH
 }

@@ -1,6 +1,6 @@
 package com.qatestlab.testcase;
 
-import com.qatestlab.configurations.Currency;
+import com.qatestlab.configurations.Value;
 import com.qatestlab.page.CheckPage;
 import org.testng.annotations.Test;
 
@@ -10,29 +10,29 @@ public class TestCase extends CheckPage {
 
     @Test
     public void testUsd() {
-        changeCurrency(Currency.USD);
-        assertTrue(checkCurrency(Currency.USD));
+        changeValue(Value.USD);
+        assertTrue(checkCurrency(Value.USD));
     }
 
     @Test
     public void testEur() {
 
-        changeCurrency(Currency.EUR);
-        assertTrue(checkCurrency(Currency.EUR));
+        changeValue(Value.EUR);
+        assertTrue(checkCurrency(Value.EUR));
     }
 
     @Test
     public void testUah(){
-        changeCurrency(Currency.UAH);
-        assertTrue(checkCurrency(Currency.UAH));
+        changeValue(Value.UAH);
+        assertTrue(checkCurrency(Value.UAH));
     }
 
     @Test
     public void testSearch(){
-        changeCurrency(Currency.USD);
+        changeValue(Value.USD);
         searchByWord();
         assertTrue(checkCountFoundedProducts());
-        assertTrue(checkCurrencyFoundedProducts(Currency.USD));
+        assertTrue(checkCurrencyFoundedProducts(Value.USD));
     }
 
     @Test

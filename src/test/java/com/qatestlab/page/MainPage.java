@@ -3,7 +3,7 @@ package com.qatestlab.page;
 import java.util.List;
 
 import com.qatestlab.configurations.ConfigTest;
-import com.qatestlab.configurations.Currency;
+import com.qatestlab.configurations.Value;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 import org.openqa.selenium.WebElement;
@@ -15,9 +15,9 @@ public class MainPage extends ConfigTest {
     private static final Logger LOG = LogManager.getLogger(MainPage.class);
     private List<WebElement> prices;
 
-    protected void changeCurrency(Currency currency) {
+    protected void changeValue(Value value) {
         waitElementToByClickable(SELECTOR_CURRENCY).click();
-        switch (currency) {
+        switch (value) {
             case EUR:
                 waitElementToByClickable(XPATH_EUR).click();
                 break;
@@ -28,25 +28,25 @@ public class MainPage extends ConfigTest {
                 waitElementToByClickable(XPATH_USD).click();
                 break;
             default:
-                throw new IllegalArgumentException("Not correct currency, should be: EUR, UAH, USD");
+                throw new IllegalArgumentException("Wrong value, should be: EUR, UAH, USD");
         }
-        LOG.info("Currency successfully change on: " + currency);
+        LOG.info("Value successfully change on: " + value);
     }
 
-    protected boolean checkCurrency(Currency currency) {
+    protected boolean checkCurrency(Value value) {
         prices = waitElementToByClickable(BY_PRICE).findElements(BY_PRICE);
 
-        LOG.info("Verifying product's price currency type ...");
-        switch (currency) {
+        LOG.info("Verifying product's price value type ...");
+        switch (value) {
             case EUR:
-                return checkCurrencySymbol("€", " is displayed in EUR currency. Verified.");
+                return checkCurrencySymbol("€", " is displayed in EUR value. Verified.");
             case UAH:
-                return checkCurrencySymbol("₴", " is displayed in UAH currency. Verified.");
+                return checkCurrencySymbol("₴", " is displayed in UAH value. Verified.");
             case USD:
-                return checkCurrencySymbol("$", " is displayed in USD currency. Verified.");
+                return checkCurrencySymbol("$", " is displayed in USD value. Verified.");
             default:
                 throw new IllegalArgumentException(
-                        "Not correct currency name, should be: EUR, UAH, USD");
+                        "Wrong value, should be: EUR, UAH, USD");
         }
     }
 
