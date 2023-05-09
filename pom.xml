@@ -11,7 +11,7 @@
     <properties>
         <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <testng.version>6.14.3</testng.version>
+        <testng.version>7.5.1</testng.version>
         <selenium.version>3.141.59</selenium.version>
         <log4j.version>1.2.17</log4j.version>
         <reportng.version>1.1.4</reportng.version>
